@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pl">
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Zegarek {{ watch.kod_produktu }}</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Zegarek {{ watch.kod_produktu }}</h1>
+    <ul>
+        {% for attribute, value in watch|dictsort %}
+            <li>{{ attribute }}: {{ value }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/edit_watch/{{ watch.kod_produktu }}">Edytuj</a>
+</body>
+</html>

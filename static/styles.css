@@ -68,3 +68,23 @@ h1 {
 .button:hover {
     background-color: #0056b3;
 }
+
+/* Dodane style */
+
+.toggle-attributes {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.watch-attributes {
+    display: none;
+    margin-top: 10px;
+}
+
+.watch-attributes.show-attributes {
+    display: block;
+}

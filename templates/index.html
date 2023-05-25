@@ -8,10 +8,12 @@
 <body>
     <h1>Zarządzanie zegarkami</h1>
     <div class="watches-container">
-        {% for watch in watches %}
-            <div class="watch-card">
-                <h2 class="watch-title">{{ watch.kod_produktu }}</h2>
-                <div class="watch-details">
+    {% for watch in watches %}
+        <div class="watch-card">
+            <h2 class="watch-title">{{ watch.kod_produktu }}</h2>
+            <div class="watch-details">
+                <button class="toggle-attributes">Pokaż atrybuty</button>
+                <div class="watch-attributes">
                     <div class="watch-attribute">
                         <span class="attribute-name">Próba:</span>
                         <span class="attribute-value">{{ watch.proba }}</span>
@@ -77,15 +79,27 @@
                         <span class="attribute-value">{{ watch.kolor_tarczy }}</span>
                     </div>
                 </div>
-                <div class="watch-actions">
-                    <a href="/watch/{{ watch.kod_produktu }}" class="button">Szczegóły</a>
-                    <form action="/delete_watch/{{ watch.kod_produktu }}" method="post">
-                        <button type="submit" class="button">Usuń</button>
-                    </form>
-                </div>
             </div>
-        {% endfor %}
-    </div>
+            <div class="watch-actions">
+                <a href="/watch/{{ watch.kod_produktu }}" class="button">Szczegóły</a>
+                <form action="/delete_watch/{{ watch.kod_produktu }}" method="post">
+                    <button type="submit" class="button">Usuń</button>
+                </form>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<script>
+    const toggleButtons = document.querySelectorAll('.toggle-attributes');
+    toggleButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const attributes = button.nextElementSibling;
+            attributes.classList.toggle('show-attributes');
+        });
+    });
+</script>
+
     <a href="/add_watch" class="button">Dodaj zegarek</a>
 </body>
 </html>

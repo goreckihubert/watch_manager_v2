@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pl">
-<html>
 <head>
     <meta charset="utf-8">
     <title>Zarządzanie zegarkami</title>
@@ -8,92 +7,85 @@
 </head>
 <body>
     <h1>Zarządzanie zegarkami</h1>
-        <form action="/add_watch" method="post">
-            <div>
-                <label for="kod_produktu">Kod produktu:</label>
-                <input type="text" id="kod_produktu" name="kod_produktu" required>
+    <div class="watches-container">
+        {% for watch in watches %}
+            <div class="watch-card">
+                <h2 class="watch-title">{{ watch.kod_produktu }}</h2>
+                <div class="watch-details">
+                    <div class="watch-attribute">
+                        <span class="attribute-name">Próba:</span>
+                        <span class="attribute-value">{{ watch.proba }}</span>
+                    </div>
+                    <div class="watch-attribute">
+                        <span class="attribute-name">Grawer:</span>
+                        <span class="attribute-value">{{ 'Tak' if watch.grawer else 'Nie' }}</span>
+                    </div>
+                    <div class="watch-attribute">
+                        <span class="attribute-name">Dla kogo:</span>
+                        <span class="attribute-value">{{ watch.dla_kogo }}</span>
+                    </div>
+                    <div class="watch-attribute">
+                        <span class="attribute-name">Rodzaj:</span>
+                        <span class="attribute-value">{{ watch.rodzaj }}</span>
+                    </div>
+                    <div class="watch-attribute">
+                        <span class="attribute-name">Styl:</span>
+                        <span class="attribute-value">{{ watch.styl }}</span>
+                    </div>
+                    <div class="watch-attribute">
+                        <span class="attribute-name">Pochodzenie:</span>
+                        <span class="attribute-value">{{ watch.pochodzenie }}</span>
+                    </div>
+                    <div class="watch-attribute">
+                        <span class="attribute-name">Szkiełko:</span>
+                        <span class="attribute-value">{{ watch.szkielko }}</span>
+                    </div>
+                    <div class="watch-attribute">
+                        <span class="attribute-name">Rodzaj koperty:</span>
+                        <span class="attribute-value">{{ watch.rodzaj_koperty }}</span>
+                    </div>
+                    <div class="watch-attribute">
+                        <span class="attribute-name">Szerokość koperty:</span>
+                        <span class="attribute-value">{{ watch.szerokosc_koperty }}</span>
+                    </div>
+                    <div class="watch-attribute">
+                        <span class="attribute-name">Grubość koperty:</span>
+                        <span class="attribute-value">{{ watch.grubosc_koperty }}</span>
+                    </div>
+                    <div class="watch-attribute">
+                        <span class="attribute-name">Typ paska / bransolety:</span>
+                        <span class="attribute-value">{{ watch.typ_paska_bransolety }}</span>
+                    </div>
+                    <div class="watch-attribute">
+                        <span class="attribute-name">Kolor paska / bransolety:</span>
+                        <span class="attribute-value">{{ watch.kolor_paska_bransolety }}</span>
+                    </div>
+                    <div class="watch-attribute">
+                        <span class="attribute-name">Wodoszczelność:</span>
+                        <span class="attribute-value">{{ watch.wodoszczelnosc }}</span>
+                    </div>
+                    <div class="watch-attribute">
+                        <span class="attribute-name">Mechanizm:</span>
+                        <span class="attribute-value">{{ watch.mechanizm }}</span>
+                    </div>
+                    <div class="watch-attribute">
+                        <span class="attribute-name">Gwarancja:</span>
+                        <span class="attribute-value">{{ watch.gwarancja }}</span>
+                    </div>
+                    <div class="watch-attribute">
+                        <span class="attribute-name">Kolor tarczy:</span>
+                        <span class="attribute-value">{{ watch.kolor_tarczy }}</span>
+                    </div>
+                </div>
+                <div class="watch-actions">
+                    <a href="/watch/{{ watch.kod_produktu }}" class="button">Szczegóły</a>
+                    <form action="/delete_watch/{{ watch.kod_produktu }}" method="post">
+                        <button type="submit" class="button">Usuń</button>
+                    </form>
+                </div>
             </div>
-            <div>
-                <label for="proba">Próba:</label>
-                <input type="text" id="proba" name="proba">
-            </div>
-            <div>
-                <label for="grawer">Grawer:</label>
-                <input type="checkbox" id="grawer" name="grawer" value="checked">
-            </div>
-            <div>
-                <label for="dla_kogo">Dla kogo:</label>
-                <input type="text" id="dla_kogo" name="dla_kogo" required>
-            </div>
-            <div>
-                <label for="rodzaj">Rodzaj:</label>
-                <input type="text" id="rodzaj" name="rodzaj" required>
-            </div>
-            <div>
-                <label for="styl">Styl:</label>
-                <input type="text" id="styl" name="styl" required>
-            </div>
-            <div>
-                <label for="pochodzenie">Pochodzenie:</label>
-                <input type="text" id="pochodzenie" name="pochodzenie" required>
-            </div>
-            <div>
-                <label for="szkielko">Szkiełko:</label>
-                <input type="text" id="szkielko" name="szkielko" required>
-            </div>
-            <div>
-                <label for="rodzaj_koperty">Rodzaj koperty:</label>
-                <input type="text" id="rodzaj_koperty" name="rodzaj_koperty" required>
-            </div>
-            <div>
-                <label for="szerokosc_koperty">Szerokość koperty:</label>
-                <input type="text" id="szerokosc_koperty" name="szerokosc_koperty" required>
-            </div>
-            <div>
-                <label for="grubosc_koperty">Grubość koperty:</label>
-                <input type="text" id="grubosc_koperty" name="grubosc_koperty" required>
-            </div>
-            <div>
-                <label for="typ_paska_bransolety">Typ paska / bransolety:</label>
-                <input type="text" id="typ_paska_bransolety" name="typ_paska_bransolety" required>
-            </div>
-            <div>
-                <label for="kolor_paska_bransolety">Kolor paska / bransolety:</label>
-                <input type="text" id="kolor_paska_bransolety" name="kolor_paska_bransolety" required>
-            </div>
-            <div>
-                <label for="wodoszczelnosc">Wodoszczelność:</label>
-                <input type="text" id="wodoszczelnosc" name="wodoszczelnosc" required>
-            </div>
-            <div>
-                <label for="mechanizm">Mechanizm:</label>
-                <input type="text" id="mechanizm" name="mechanizm" required>
-            </div>
-            <div>
-                <label for="gwarancja">Gwarancja:</label>
-                <input type="text" id="gwarancja" name="gwarancja" required>
-            </div>
-            <div>
-                <label for="kolor_tarczy">Kolor tarczy:</label>
-                <input type="text" id="kolor_tarczy" name="kolor_tarczy" required>
-            </div>
-            <button type="submit">Dodaj zegarek</button>
-        </form>
-
-    <ul>
-    {% for watch in watches %}
-        <li>
-            <a href="/watch/{{ watch.kod_produktu }}">{{ watch.kod_produktu }}</a>
-            <form action="/delete_watch/{{ watch.kod_produktu }}" method="post">
-                <button type="submit">Usuń</button>
-            </form>
-        </li>
-    {% endfor %}
-    </ul>
+        {% endfor %}
+    </div>
+    <a href="/add_watch" class="button">Dodaj zegarek</a>
 </body>
 </html>
-<script>
-    document.querySelector('#grawer').addEventListener('change', function() {
-        this.value = this.checked ? 'True' : 'False';
-    });
-</script>

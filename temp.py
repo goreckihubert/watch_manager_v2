@@ -2,6 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from watch import Watch
 
+
 def add_sample_watch():
     engine = create_engine('sqlite:///watches.db')
     Session = sessionmaker(bind=engine)

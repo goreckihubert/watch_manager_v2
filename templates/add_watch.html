@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj zegarek</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Dodaj zegarek</h1>
+    <form action="/add_watch" method="post">
+        <div>
+            <label for="kod_produktu">Kod produktu:</label>
+            <input type="text" id="kod_produktu" name="kod_produktu" required>
+        </div>
+        <div>
+            <label for="proba">Próba:</label>
+            <input type="text" id="proba" name="proba">
+        </div>
+        <div>
+            <label for="grawer">Grawer:</label>
+            <input type="checkbox" id="grawer" name="grawer" required>
+        </div>
+        <div>
+            <label for="dla_kogo">Dla kogo:</label>
+            <input type="text" id="dla_kogo" name="dla_kogo" required>
+        </div>
+        <div>
+            <label for="rodzaj">Rodzaj:</label>
+            <input type="text" id="rodzaj" name="rodzaj" required>
+        </div>
+        <div>
+            <label for="styl">Styl:</label>
+            <input type="text" id="styl" name="styl" required>
+        </div>
+        <div>
+            <label for="pochodzenie">Pochodzenie:</label>
+            <input type="text" id="pochodzenie" name="pochodzenie" required>
+        </div>
+        <div>
+            <label for="szkielko">Szkiełko:</label>
+            <input type="text" id="szkielko" name="szkielko" required>
+        </div>
+        <div>
+            <label for="rodzaj_koperty">Rodzaj koperty:</label>
+            <input type="text" id="rodzaj_koperty" name="rodzaj_koperty" required>
+        </div>
+        <div>
+            <label for="szerokosc_koperty">Szerokość koperty:</label>
+            <input type="text" id="szerokosc_koperty" name="szerokosc_koperty" required>
+        </div>
+        <div>
+            <label for="grubosc_koperty">Grubość koperty:</label>
+            <input type="text" id="grubosc_koperty" name="grubosc_koperty" required>
+        </div>
+        <div>
+            <label for="typ_paska_bransolety">Typ paska / bransolety:</label>
+            <input type="text" id="typ_paska_bransolety" name="typ_paska_bransolety" required>
+        </div>
+        <div>
+            <label for="kolor_paska_bransolety">Kolor paska / bransolety:</label>
+            <input type="text" id="kolor_paska_bransolety" name="kolor_paska_bransolety" required>
+        </div>
+        <div>
+            <label for="wodoszczelnosc">Wodoszczelność:</label>
+            <input type="text" id="wodoszczelnosc" name="wodoszczelnosc" required>
+        </div>
+        <div>
+            <label for="mechanizm">Mechanizm:</label>
+            <input type="text" id="mechanizm" name="mechanizm" required>
+        </div>
+        <div>
+            <label for="gwarancja">Gwarancja:</label>
+            <input type="text" id="gwarancja" name="gwarancja" required>
+        </div>
+        <div>
+            <label for="kolor_tarczy">Kolor tarczy:</label>
+            <input type="text" id="kolor_tarczy" name="kolor_tarczy" required>
+        </div>
+        <button type="submit">Dodaj zegarek</button>
+    </form>
+</body>
+</html>

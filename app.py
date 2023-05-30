@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
+
+from attribute import Attribute
 from database import db_session
 from watch import Watch
 
@@ -20,32 +22,21 @@ def watch(watch_id):
 @app.route('/add_watch', methods=['GET', 'POST'])
 def add_watch():
     if request.method == 'POST':
-        data = {
-            'kod_produktu': request.form['kod_produktu'],
-            'proba': request.form['proba'],
-            'grawer': 'grawer' in request.form,  # Sprawdzenie czy klucz 'grawer' istnieje w formularzu
-            'dla_kogo': request.form['dla_kogo'],
-            'rodzaj': request.form['rodzaj'],
-            'styl': request.form['styl'],
-            'pochodzenie': request.form['pochodzenie'],
-            'szkielko': request.form['szkielko'],
-            'rodzaj_koperty': request.form['rodzaj_koperty'],
-            'szerokosc_koperty': request.form['szerokosc_koperty'],
-            'grubosc_koperty': request.form['grubosc_koperty'],
-            'typ_paska_bransolety': request.form['typ_paska_bransolety'],
-            'kolor_paska_bransolety': request.form['kolor_paska_bransolety'],
-            'wodoszczelnosc': request.form['wodoszczelnosc'],
-            'mechanizm': request.form['mechanizm'],
-            'gwarancja': request.form['gwarancja'],
-            'kolor_tarczy': request.form['kolor_tarczy']
-        }
+        kod_produktu = request.form['kod_produktu']
+        attribute_ids = request.form.getlist('attribute_ids')
 
-        watch = Watch(**data)
+        watch = Watch(kod_produktu=kod_produktu)
         db_session.add(watch)
+
+        for attribute_id in attribute_ids:
+            attribute = Attribute.query.get(attribute_id)
+            watch.attributes.append(attribute)
+
         db_session.commit()
         return redirect(url_for('index'))
     else:
-        return render_template('add_watch.html')
+        attributes = Attribute.query.all()
+        return render_template('add_watch.html', attributes=attributes, attribute_ids=[])  # Dodaj attribute_ids=[]
 
 
 @app.route('/delete_watch/<watch_id>', methods=['POST'])
@@ -80,6 +71,12 @@ def edit_watch(watch_id):
         db_session.commit()
         return redirect(url_for('watch', watch_id=watch_id))
     return render_template('edit_watch.html', watch=watch)
+
+
+@app.route('/attributes')
+def attributes():
+    attributes = Attribute.query.all()
+    return render_template('attributes.html', attributes=attributes)
 
 
 if __name__ == '__main__':

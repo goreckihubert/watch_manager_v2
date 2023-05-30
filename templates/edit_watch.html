@@ -1,103 +1,101 @@
 <!DOCTYPE html>
 <html lang="pl">
-<html>
 <head>
     <meta charset="utf-8">
     <title>Edytuj zegarek {{ watch.kod_produktu }}</title>
-    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/styles1.css">
 </head>
 <body>
     <h1>Edytuj zegarek {{ watch.kod_produktu }}</h1>
     <form action="/edit_watch/{{ watch.kod_produktu }}" method="post">
-        <div>
+        <div class="form-group">
             <label for="kod_produktu">Kod produktu:</label>
             <input type="text" id="kod_produktu" name="kod_produktu" value="{{ watch.kod_produktu }}" required>
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="proba">Próba:</label>
             <input type="text" id="proba" name="proba" value="{{ watch.proba }}">
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="grawer">Grawer:</label>
             <input type="checkbox" id="grawer" name="grawer" {% if watch.grawer %}checked{% endif %}>
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="dla_kogo">Dla kogo:</label>
             <input type="text" id="dla_kogo" name="dla_kogo" value="{{ watch.dla_kogo }}" required>
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="rodzaj">Rodzaj:</label>
             <input type="text" id="rodzaj" name="rodzaj" value="{{ watch.rodzaj }}" required>
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="styl">Styl:</label>
             <input type="text" id="styl" name="styl" value="{{ watch.styl }}" required>
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="pochodzenie">Pochodzenie:</label>
             <input type="text" id="pochodzenie" name="pochodzenie" value="{{ watch.pochodzenie }}" required>
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="szkielko">Szkiełko:</label>
             <input type="text" id="szkielko" name="szkielko" value="{{ watch.szkielko }}" required>
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="rodzaj_koperty">Rodzaj koperty:</label>
             <input type="text" id="rodzaj_koperty" name="rodzaj_koperty" value="{{ watch.rodzaj_koperty }}" required>
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="szerokosc_koperty">Szerokość koperty:</label>
-            <input type="number" id="szerokosc_koperty" name="szerokosc_koperty" value="{{ watch.szerokosc_koperty }}" required>
+            <input type="text" id="szerokosc_koperty" name="szerokosc_koperty" value="{{ watch.szerokosc_koperty }}" required>
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="grubosc_koperty">Grubość koperty:</label>
-            <input type="number" id="grubosc_koperty" name="grubosc_koperty" value="{{ watch.grubosc_koperty }}" required>
+            <input type="text" id="grubosc_koperty" name="grubosc_koperty" value="{{ watch.grubosc_koperty }}" required>
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="typ_paska_bransolety">Typ paska/bransolety:</label>
             <input type="text" id="typ_paska_bransolety" name="typ_paska_bransolety" value="{{ watch.typ_paska_bransolety }}" required>
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="kolor_paska_bransolety">Kolor paska/bransolety:</label>
             <input type="text" id="kolor_paska_bransolety" name="kolor_paska_bransolety" value="{{ watch.kolor_paska_bransolety }}" required>
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="wodoszczelnosc">Wodoszczelność:</label>
             <input type="text" id="wodoszczelnosc" name="wodoszczelnosc" value="{{ watch.wodoszczelnosc }}" required>
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="mechanizm">Mechanizm:</label>
             <input type="text" id="mechanizm" name="mechanizm" value="{{ watch.mechanizm }}" required>
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="gwarancja">Gwarancja:</label>
             <input type="text" id="gwarancja" name="gwarancja" value="{{ watch.gwarancja }}" required>
         </div>
 
-        <div>
+        <div class="form-group">
             <label for="kolor_tarczy">Kolor tarczy:</label>
             <input type="text" id="kolor_tarczy" name="kolor_tarczy" value="{{ watch.kolor_tarczy }}" required>
         </div>
 
-        <div>
-            <button type="submit">Zapisz zmiany</button>
+        <div class="form-group">
+            <button type="submit" class="button">Zapisz zmiany</button>
         </div>
     </form>
-
 </body>
 </html>

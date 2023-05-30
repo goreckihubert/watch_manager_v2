@@ -88,3 +88,12 @@ h1 {
 .watch-attributes.show-attributes {
     display: block;
 }
+
+/* Dodane style do nawigacji */
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 20px;
+}

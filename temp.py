@@ -10,8 +10,8 @@ def add_sample_watch():
 
     # Tworzenie przykładowego zegarka
     sample_watch = Watch(
-        kod_produktu='ZEG003',
-        proba='18k',
+        kod_produktu='ZEG013',
+        proba='',
         grawer=True,
         dla_kogo='Mężczyzna',
         rodzaj='Mechaniczny',
@@ -19,11 +19,11 @@ def add_sample_watch():
         pochodzenie='Szwajcaria',
         szkielko='Szkło szafirowe',
         rodzaj_koperty='Stal nierdzewna',
-        szerokosc_koperty='40 mm',
+        szerokosc_koperty='42 mm',
         grubosc_koperty='10 mm',
         typ_paska_bransolety='Skórzany',
         kolor_paska_bransolety='Czarny',
-        wodoszczelnosc='100 m',
+        wodoszczelnosc='200 m',
         mechanizm='Automatyczny',
         gwarancja='2 lata',
         kolor_tarczy='Biały'

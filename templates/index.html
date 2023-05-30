@@ -7,6 +7,10 @@
 </head>
 <body>
     <h1>Zarządzanie zegarkami</h1>
+    <nav>
+        <a href="/add_watch" class="button">Dodaj zegarek</a>
+        <a href="/attributes" class="button">Atrybuty</a>
+    </nav>
     <div class="watches-container">
     {% for watch in watches %}
         <div class="watch-card">
@@ -90,16 +94,7 @@
     {% endfor %}
 </div>
 
-<script>
-    const toggleButtons = document.querySelectorAll('.toggle-attributes');
-    toggleButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const attributes = button.nextElementSibling;
-            attributes.classList.toggle('show-attributes');
-        });
-    });
-</script>
+    <script src="/static/script.js"></script>
 
-    <a href="/add_watch" class="button">Dodaj zegarek</a>
 </body>
 </html>

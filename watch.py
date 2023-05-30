@@ -1,4 +1,5 @@
-from sqlalchemy import Column, String, Boolean
+from sqlalchemy import Column, String, Boolean, ForeignKey, Integer
+from sqlalchemy.orm import relationship
 from database import Base
 
 
@@ -22,3 +23,12 @@ class Watch(Base):
     mechanizm = Column(String(50))
     gwarancja = Column(String(50))
     kolor_tarczy = Column(String(50))
+
+    attributes = relationship('Attribute', secondary='watch_attribute')
+
+
+class WatchAttribute(Base):
+    __tablename__ = 'watch_attribute'
+
+    watch_kod_produktu = Column(String(50), ForeignKey('watches.kod_produktu'), primary_key=True)
+    attribute_id = Column(Integer, ForeignKey('attributes.id'), primary_key=True)
